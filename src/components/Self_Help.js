@@ -4,6 +4,7 @@ import articleimage from '../images/mentalheltharticlaimage.jpg'
 import AddPdfDocument from "./Master_UploadingNewArticles";
 import PdfViewer from "./PDF_Viwer";
 import {useFetchFiles} from '../middleware/Fetch_Articles';
+const BACKEND_URLCON= 'https://backend-mentalhealth-api.onrender.com';
 
 
   const Selfhelp = () => {
@@ -37,7 +38,7 @@ import {useFetchFiles} from '../middleware/Fetch_Articles';
 
     const handledelete= async(filename)=>{
         try {
-            const response =await fetch ('http://localhost:5000/customer/deletearticles',{
+            const response =await fetch (`${BACKEND_URLCON}/customer/deletearticles`,{
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
+const BACKEND_URLCON= 'https://backend-mentalhealth-api.onrender.com';
 
 export function useFetchVideos() {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/customer/videos')
+    fetch(`${BACKEND_URLCON}/customer/videos`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');

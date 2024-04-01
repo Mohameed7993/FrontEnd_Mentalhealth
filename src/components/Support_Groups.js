@@ -7,7 +7,7 @@ import { useAuth } from '../context/AuthContext';
 import EditBroadcastLink from './Edit_Links_SupportGroups';
 import { useSocialMediaLinks } from '../middleware/Fetch_SocialBroadcats';
 
-
+const BACKEND_URLCON= 'https://backend-mentalhealth-api.onrender.com';
 
 const Support_Groups = () => {
     const {user}=useAuth();
@@ -23,7 +23,7 @@ const Support_Groups = () => {
         setIsModalOpen(false);
 
         try {
-            const response=await fetch ('http://localhost:5000/customer/editsociallink',{
+            const response=await fetch (`${BACKEND_URLCON}/customer/editsociallink`,{
                 method:'PATCH',
                 headers:{
                     'Content-Type': 'application/json',

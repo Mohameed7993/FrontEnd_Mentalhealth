@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+const BACKEND_URLCON= 'https://backend-mentalhealth-api.onrender.com';
 
 
 const AddPdfDocument = ({ isOpen, onClose, onSubmit }) => {
@@ -20,7 +21,7 @@ const AddPdfDocument = ({ isOpen, onClose, onSubmit }) => {
 
      // Don't set the Content-Type header manually
      console.log(formData)
-  const response = await fetch("http://localhost:5000/customer/uploadnewfile", {
+  const response = await fetch(`${BACKEND_URLCON}/customer/uploadnewfile`, {
     method: 'POST',
     body: formData, // Pass formData directly
   });

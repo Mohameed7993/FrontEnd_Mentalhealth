@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap CSS is import
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useNavigate } from 'react-router-dom';
 
+const BACKEND_URLCON= 'https://backend-mentalhealth-api.onrender.com';
+
 
 const Userlist = () => {
     
@@ -16,7 +18,7 @@ const handleDeleteUser= async (User_Id)=>{
 
     if(window.confirm("Are you sure you want to delete this item?")){
         try {
-            const response=await fetch('http://localhost:5000/customer/deleteuser',{
+            const response=await fetch(`${BACKEND_URLCON}/customer/deleteuser`,{
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -63,7 +65,7 @@ const handleStatususersChange = async (UserId, inputs) => {
     
     // Attempt to update the user's status on the server
     try {
-        const response = await fetch('http://localhost:5000/customer/profile', {
+        const response = await fetch(`${BACKEND_URLCON}/customer/profile`, {
           method: 'PATCH', // Or 'PUT' if your server is set up to use PUT for updates
           headers: {
             'Content-Type': 'application/json',
@@ -119,7 +121,7 @@ const handleStatususersChange = async (UserId, inputs) => {
     // Simulate fetching data from an API
     const fetchUsers = async () => {
       // Replace with your actual fetch request
-      const response = await fetch('http://localhost:5000/customer/users');
+      const response = await fetch(`${BACKEND_URLCON}/customer/users`);
       const data = await response.json();
       setUsers(data);
     };

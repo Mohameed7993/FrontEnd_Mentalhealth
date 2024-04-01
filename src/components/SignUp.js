@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import vid from '../images/mentalhelthvideo.mp4'
 import {  useNavigate } from 'react-router-dom';
+const BACKEND_URLCON= 'https://backend-mentalhealth-api.onrender.com';
 
 const SignUp = () => {
   const navigate=useNavigate();
@@ -18,7 +19,7 @@ const SignUp = () => {
   const  handleSubmit = async(event) => {
     event.preventDefault();
 
-    const response =  await fetch('http://localhost:5000/customer/signup', {
+    const response =  await fetch(`${BACKEND_URLCON}/customer/signup`, {
         method: 'POST',
         body: JSON.stringify(inputs),
         headers: {

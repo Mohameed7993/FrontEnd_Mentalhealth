@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 
+const BACKEND_URLCON= 'https://backend-mentalhealth-api.onrender.com';
+
 export function useFetchFiles () {
   const [files, setFiles] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/customer/files')
+    fetch(`${BACKEND_URLCON}/customer/files`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');

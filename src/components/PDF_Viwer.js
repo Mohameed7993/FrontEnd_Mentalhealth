@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+const BACKEND_URLCON= 'https://backend-mentalhealth-api.onrender.com';
 const PdfViewer = ({ isOpen, pdfFileID, onClose }) => {
   const [pdfContent, setPdfContent] = useState(null);
 
@@ -8,7 +9,7 @@ const PdfViewer = ({ isOpen, pdfFileID, onClose }) => {
     const fetchPdf = async () => {
       if (pdfFileID) {
         try {
-          const response = await fetch(`http://localhost:5000/customer/files/${pdfFileID}`);
+          const response = await fetch(`${BACKEND_URLCON}/customer/files/${pdfFileID}`);
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }

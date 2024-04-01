@@ -1,5 +1,6 @@
 // useSocialMediaLinks.js
 import { useState, useEffect } from 'react';
+const BACKEND_URLCON= 'https://backend-mentalhealth-api.onrender.com';
 
 export function  useSocialMediaLinks () {
   const [facebook, setFacebook] = useState('');
@@ -9,7 +10,7 @@ export function  useSocialMediaLinks () {
   useEffect(() => {
     const fetchSocialMediaBroadcasts = async () => {
       try {
-        const response = await fetch("http://localhost:5000/customer/getsociallinks");
+        const response = await fetch(`${BACKEND_URLCON}/customer/getsociallinks`);
         if (!response.ok) throw new Error('Failed to fetch the links');
         const data = await response.json();
         for (let i = 0; i < data.length; i++) {

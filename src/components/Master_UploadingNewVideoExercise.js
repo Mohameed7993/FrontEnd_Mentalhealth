@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+const BACKEND_URLCON= 'https://backend-mentalhealth-api.onrender.com';
+
 const AddVideoExercise = ({ isOpen, onClose, onSubmit }) => {
   const [videoFile, setVideoFile] = useState(null);
   const [exerciseName, setExerciseName] = useState('');
@@ -17,7 +19,7 @@ const AddVideoExercise = ({ isOpen, onClose, onSubmit }) => {
     formData.append('level', level);
     formData.append('how_to_do',how_to_do);
 
-    const response = await fetch("http://localhost:5000/customer/uploadnewvideo", {
+    const response = await fetch(`${BACKEND_URLCON}/customer/uploadnewvideo`, {
       method: 'POST',
       body: formData, // Pass formData directly
     });

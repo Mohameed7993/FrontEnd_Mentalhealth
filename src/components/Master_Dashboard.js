@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useAuth } from '../context/AuthContext';
 
+const BACKEND_URLCON= 'https://backend-mentalhealth-api.onrender.com';
+
 const Master_Dashboard = () => {
 const {user}=useAuth();
   
@@ -33,7 +35,7 @@ const {user}=useAuth();
     // Fetch users for group one
     const fetchUserInactive = async () => {
       try {
-        const response = await fetch('http://localhost:5000/customer/users');
+        const response = await fetch(`${BACKEND_URLCON}/customer/users`);
         if (!response.ok) throw new Error('Failed to fetch group one users');
         const data = await response.json();
         const panddingDoctors=data.filter(user => (user.role === 6)&&(user.status==='Inactive'))
@@ -69,7 +71,7 @@ const handleStatusChange = async (UserId, inputs) => {
  
     // updateing the user's status on the server
     try {
-        const response = await fetch('http://localhost:5000/customer/profile', {
+        const response = await fetch(`${BACKEND_URLCON}/customer/profile`, {
           method: 'PATCH', // Or 'PUT' if your server is set up to use PUT for updates
           headers: {
             'Content-Type': 'application/json',

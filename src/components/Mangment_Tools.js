@@ -5,6 +5,8 @@ import {useFetchVideos} from '../middleware/Fetch_Videos'
 import videosImage from '../images/exerciseImage.jpg'
 import ExerciseWatching from './WatchingExercise';
 
+const BACKEND_URLCON= 'https://backend-mentalhealth-api.onrender.com';
+
 
 
 function VideosUpload() {
@@ -44,7 +46,7 @@ function VideosUpload() {
 const handledelete= async(videoId)=>{
   if(window.confirm("Are you suer that u want to delte al vedio")){
   try {
-      const response =await fetch ('http://localhost:5000/customer/deleteVideo',{
+      const response =await fetch (`${BACKEND_URLCON}/customer/deleteVideo`,{
           method: 'DELETE',
           headers: {
               'Content-Type': 'application/json',

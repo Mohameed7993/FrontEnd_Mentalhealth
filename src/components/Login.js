@@ -6,6 +6,8 @@ import {  useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import EnterInform from './Customer_Enter_More_Information';
 
+const BACKEND_URLCON= 'https://backend-mentalhealth-api.onrender.com';
+
 const Login = () => {
 
   const [isfirsttimelogin, setIsFirstTimeUser] = useState(''); // You'll determine this based on your conditions
@@ -28,7 +30,7 @@ const Login = () => {
 
     ///peatch to update the isfirst time:///////
     try {
-      const response = await fetch('http://localhost:5000/customer/profile', {
+      const response = await fetch(`${BACKEND_URLCON}/customer/profile`, {
         method: 'PATCH', // Or 'PUT' if your server is set up to use PUT for updates
         headers: {
           'Content-Type': 'application/json',
@@ -55,7 +57,7 @@ const Login = () => {
     
     // ///// post to set the inputs!////
     try {
-      const response = await fetch('http://localhost:5000/customer/addmoreinform', {
+      const response = await fetch(`${BACKEND_URLCON}/customer/addmoreinform`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -91,7 +93,7 @@ const Login = () => {
     e.preventDefault();
   
     try {
-      const response = await fetch('http://localhost:5000/customer/login', {
+      const response = await fetch(`${BACKEND_URLCON}/customer/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

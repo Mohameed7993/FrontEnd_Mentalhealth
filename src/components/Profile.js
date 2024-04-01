@@ -1,5 +1,6 @@
 import React,{useEffect,useState } from 'react';
 import { useAuth } from '../context/AuthContext';
+const BACKEND_URLCON= 'https://backend-mentalhealth-api.onrender.com';
 
 // Assuming you pass a user object as a prop to this component
 const UserProfile = () => {    
@@ -20,7 +21,7 @@ const UserProfile = () => {
       const  handleSubmit = async(event) => {
         event.preventDefault();
         try {
-            const response = await fetch('http://localhost:5000/customer/profile', {
+            const response = await fetch(`${BACKEND_URLCON}/customer/profile`, {
               method: 'PATCH', // Or 'PUT' if your server is set up to use PUT for updates
               headers: {
                 'Content-Type': 'application/json',

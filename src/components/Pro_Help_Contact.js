@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+const BACKEND_URLCON= 'https://backend-mentalhealth-api.onrender.com';
 
 const DoctorList = () => {
   const [doctors, setDoctors] = useState([]);
@@ -18,7 +19,7 @@ const DoctorList = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch('http://localhost:5000/customer/users');
+        const response = await fetch(`${BACKEND_URLCON}/customer/users`);
         const data = await response.json();
         // Filter users to get only the ones with role === 6 (doctors)
         const doctorUsers = data.filter(user => user.role === 6);

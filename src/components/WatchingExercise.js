@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useFetchVideos } from '../middleware/Fetch_Videos';
+
+const BACKEND_URLCON= 'https://backend-mentalhealth-api.onrender.com';
 
 const ExerciseWatching = ({ isOpen, VideoID, onClose, videoName, videoHowtodo }) => {
   const [videoUrl, setVideoUrl] = useState(null);
@@ -8,7 +9,7 @@ const ExerciseWatching = ({ isOpen, VideoID, onClose, videoName, videoHowtodo })
     const fetchVideo = async () => {
       if (VideoID) {
         try {
-          const response = await fetch(`http://localhost:5000/customer/videos/${VideoID}`);
+          const response = await fetch(`${BACKEND_URLCON}/customer/videos/${VideoID}`);
           if (!response.ok) {
             throw new Error('Fetching video failed!');
           }

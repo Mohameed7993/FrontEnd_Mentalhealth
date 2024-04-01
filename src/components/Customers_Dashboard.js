@@ -6,6 +6,7 @@ import imge2 from '../images/Instagram_icon.png';
 import imge3 from '../images/whatsapp_icon.png';
 import articleimage from '../images/mentalheltharticlaimage.jpg'
 import {useFetchFiles} from '../middleware/Fetch_Articles';
+const BACKEND_URLCON= 'https://backend-mentalhealth-api.onrender.com';
 
 
 
@@ -63,7 +64,7 @@ const Customer_Dashboard=()=> {
       const FetchUserMentalInform=async()=>{
 
         try {
-            const response = await fetch('http://localhost:5000/customer/getmentalinformation');
+            const response = await fetch(`${BACKEND_URLCON}/customer/getmentalinformation`);
             if (!response.ok) throw new Error('Failed to fetch group one users');
             const data = await response.json();
             
