@@ -21,11 +21,19 @@ const AboutUs = () => {
   // Team Members Data
   const teamMembers = [
     {
-      image: juliaImage,
-      name: "Julia Shbat",
+      image: mhamdImage,
+      name: "Mohameed Egbaria",
       role: "Software Engineering Student",
-      description: "Passionate about coding and problem-solving.",
-      email: "Julia@example.com"
+      description: "Passionate about coding and building scalable applications.",
+      email: "software.egbaria@gmail.com"
+    },
+    {
+      image: shorokImage,
+      name: "Shorok Heib",
+      role: "Information Systems Student",
+      description: "Passionate about technology and innovation.",
+      email: "Shorok@example.com"
+     
     },
     {
       image: marysolImage,
@@ -35,18 +43,11 @@ const AboutUs = () => {
       email: "Marysol@example.com"
     },
     {
-      image: shorokImage,
-      name: "Shorok Heib",
-      role: "Information Systems Student",
-      description: "Passionate about technology and innovation.",
-      email: "Shorok@example.com"
-    },
-    {
-      image: mhamdImage,
-      name: "Mhamd Egbaria",
+      image: juliaImage,
+      name: "Julia Shbat",
       role: "Software Engineering Student",
-      description: "Passionate about coding and building scalable applications.",
-      email: "Mhamd@example.com"
+      description: "Passionate about coding and problem-solving.",
+      email: "Julia@example.com"
     }
   ];
 

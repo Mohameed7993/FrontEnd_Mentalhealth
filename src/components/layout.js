@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState,useEffect } from 'react';
 import '../styles/tailwind.css';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
@@ -28,7 +28,7 @@ const DropdownItem = ({ href, children, onClick }) => (
 
 const Layouts = () => {
 
-
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
   const navigate = useNavigate();
   const { user, logout } = useAuth();
   const { theme, toggleTheme } = useTheme(); // Use the useTheme hook here
@@ -49,8 +49,21 @@ const Layouts = () => {
     };
   }, [toggleTheme,theme]);
 
+  const toggleMenuVisibility = () => {
+    setIsMenuVisible(!isMenuVisible);
+  };
 
+useEffect(()=>{
+const handleBarIconClick=()=>{
 
+}
+
+  const navbar = document.getElementById("menuBtn");
+  navbar?.addEventListener("click", handleBarIconClick);
+  return () => {
+    navbar?.removeEventListener("click", handleBarIconClick);
+  };
+})
 
    useEffect(() => {
     const handleUserIconClick = () => {
@@ -74,25 +87,26 @@ const Layouts = () => {
     <>
       <div className="max-w mx-auto flex flex-col gap-2 bg-white dark:bg-gray-900 border">
         <div className="p-4 dark:bg-white bg-gray-900 flex justify-between">
-          <button id="menuBtn" className="md:hidden block bg-white border border-gray-900 rounded py-1 px-3">
-            <i className="fas fa-bars"></i>
-          </button>
+        <button id="menuBtn" className="md:hidden block bg-white border border-gray-900 rounded py-1 px-3" onClick={toggleMenuVisibility}>
+  <i className="fas fa-bars"></i>
+</button>            
+          
 
-          <div id="menu" className="absolute left-2 top-[15%]  hidden   text-white dark:bg-white bg-gray-900 md:flex md:flex-row md:relative md:top-auto md:w-auto">
-            <div className='flex text-xl p-2 font-extrabold dark:text-gray-900 space-x-2' id='default'>
+<div id="menu" className={`absolute left-2 z-50 top-[80px] ${isMenuVisible ? 'block' : 'hidden'} flex flex-col md:flex md:flex-row md:relative md:top-auto md:w-auto text-white dark:bg-white bg-gray-900`}>
+            <div className='md:flex   text-xl p-2 font-extrabold dark:text-gray-900 space-x-2' id='default'>
               <NavLink href="/">Home</NavLink>
               <NavLink href="/signup">Sign-up</NavLink>
               <NavLink href="/login">Log-In</NavLink>
               <NavLink href="/about">About</NavLink>
             </div>
-            <div className=' hidden flex text-xl p-2 font-extrabold dark:text-gray-900 space-x-2' id='adminActions'>
+            <div className=' hidden md:hidden md:flex  text-xl p-2 font-extrabold dark:text-gray-900 space-x-2' id='adminActions'>
               <NavLink href="/master">Dashboard</NavLink>
               <NavLink href="/master_User">Users</NavLink>
               <NavLink href="/support_groups">links</NavLink>
               <NavLink href="/selfhelparticles">Articles</NavLink>
               <NavLink href="/mangmenttols">Video Exercise</NavLink>
             </div>
-            <div className='hidden flex text-xl p-2 font-extrabold dark:text-gray-900 space-x-2' id='userActions'>
+            <div className=' md:hidden hidden md:flex text-xl p-2 font-extrabold dark:text-gray-900 space-x-2' id='userActions'>
               <NavLink href="/customers">Dashboard</NavLink>
               <NavLink href="/selfhelparticles">Self-help</NavLink>
               <NavLink href="/mangmenttols">Stress-MangTools</NavLink>

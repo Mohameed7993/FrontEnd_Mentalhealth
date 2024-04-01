@@ -51,10 +51,12 @@ const Customer_Dashboard=()=> {
        
 
         if (useraction) {
+            useraction.classList.remove('md:hidden');
             useraction.classList.remove('hidden');
         }
      
       if (defaultaction) {
+        defaultaction.classList.add('md:hidden');
         defaultaction.classList.add('hidden');
       }
       
@@ -94,10 +96,10 @@ const Customer_Dashboard=()=> {
       }
 
   return (
-    <div className="dark:bg-gray-900 text-white p-28">
-    <div className="grid grid-cols-4 gap-4"> {/* Creates a grid with 4 columns */}
+    <div className="dark:bg-gray-900 text-white p-4 md:p-28">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-4"> 
       
-      <div className="col-span-3"> {/* Main content, taking up 3/4th of the space */}
+      <div className="md:col-span-3 space-y-4"> {/* Main content, taking up 3/4th of the space */}
         <div className="mx-auto dark:text-gray-900 dark:bg-white bg-gray-900 p-8 rounded-md shadow-md"> {/* Adjusted for grid layout */}
           <h1 className="text-2xl font-bold mb-8" id="greeting">{greeting}, {user.fullname}!</h1>
           <div id="mentalStatus" className="mb-2">Mental Status: {filteredInformation.mental_state}</div>
@@ -107,7 +109,7 @@ const Customer_Dashboard=()=> {
         </div>
       </div>
 
-      <div className="col-span-1"> {/* Left side for advertisements, taking up 1/4th of the space */}
+      <div className="md:col-span-1 space-y-4"> {/* Left side for advertisements, taking up 1/4th of the space */}
         {/* Add your advertisement content here */}
         <div className="rounded overflow-hidden shadow-lg p-4 bg-white dark:bg-gray-800"> {/* Example advertisement box */}
         <b className='text-black'>1-Now you can Join to Social BroadCasts and share your Story</b>

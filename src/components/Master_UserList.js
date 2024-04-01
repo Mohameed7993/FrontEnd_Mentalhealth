@@ -108,10 +108,12 @@ const handleStatususersChange = async (UserId, inputs) => {
     const defaultaction = document.getElementById('default');
 
     if (adminaction) {
+      adminaction.classList.remove('md:hidden');
       adminaction.classList.remove('hidden');
     }
  
   if (defaultaction) {
+    defaultaction.classList.add('md:hidden');
     defaultaction.classList.add('hidden');
   }
 }, []);

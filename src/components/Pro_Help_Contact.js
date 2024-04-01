@@ -4,16 +4,25 @@ const BACKEND_URLCON= 'https://backend-mentalhealth-api.onrender.com';
 const DoctorList = () => {
   const [doctors, setDoctors] = useState([]);
 
+
   useEffect(() => {
     // Directly select the element by ID and modify its class
     const useraction = document.getElementById('userActions');
     const defaultaction = document.getElementById('default');
+   
 
-    if (defaultaction) {
-        defaultaction.classList.add('hidden');
-      }
+    if (useraction) {
+        useraction.classList.remove('md:hidden');
         useraction.classList.remove('hidden');
+    }
+ 
+  if (defaultaction) {
+    defaultaction.classList.add('md:hidden');
+    defaultaction.classList.add('hidden');
+  }
+  
 }, []);
+ 
 
 
   useEffect(() => {

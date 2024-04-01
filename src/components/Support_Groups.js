@@ -54,6 +54,7 @@ const Support_Groups = () => {
       };
 
 
+   
     useEffect(() => {
         // Directly select the element by ID and modify its class
         const useraction = document.getElementById('userActions');
@@ -62,14 +63,17 @@ const Support_Groups = () => {
         console.log(user.role)
 
         if (defaultaction) {
-            defaultaction.classList.add('hidden');
+          defaultaction.classList.add('md:hidden');
+          defaultaction.classList.add('hidden');
           }
 
        if(user.role===1){
-            useraction.classList.remove('hidden');
+        useraction.classList.remove('md:hidden');
+        useraction.classList.remove('hidden');
         
     }else if(user.role===10) {
         if (adminaction) {
+            adminaction.classList.remove('md:hidden');
             adminaction.classList.remove('hidden');
             document.getElementById('titlesupportgrouppageuser').classList.add('hidden')
             document.getElementById('titlesupportgrouppagemaster').classList.remove('hidden')

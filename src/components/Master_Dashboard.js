@@ -14,10 +14,12 @@ const {user}=useAuth();
     const defaultaction = document.getElementById('default');
 
     if (adminaction) {
-        adminaction.classList.remove('hidden');
+      adminaction.classList.remove('md:hidden');
+      adminaction.classList.remove('hidden');
     }
  
   if (defaultaction) {
+    defaultaction.classList.add('md:hidden');
     defaultaction.classList.add('hidden');
   }
 }, []);
@@ -139,6 +141,21 @@ const handleStatusChange = async (UserId, inputs) => {
     </table>
   );
 
+  useEffect(() => {
+    // Directly select the element by ID and modify its class
+    const adminaction = document.getElementById('adminActions');
+    const defaultaction = document.getElementById('default');
+
+    if (adminaction) {
+      adminaction.classList.remove('md:hidden');
+      adminaction.classList.remove('hidden');
+    }
+ 
+  if (defaultaction) {
+    defaultaction.classList.add('md:hidden');
+    defaultaction.classList.add('hidden');
+  }
+}, []);
   return (
     <div className=" dark:bg-gray-900 ">
       <div className="col  container ">
@@ -146,8 +163,8 @@ const handleStatusChange = async (UserId, inputs) => {
         <p className='dark:text-white'><b>Dashboard page: News</b></p>
         {/* Column for the first card and table group */}
         
-        <div className="col ">
-          <div className="card border-black mb-3 cursor-pointer w-[20%]" onClick={() => setShowTableOne(!showTableOne)}>
+        <div className="col z-10 ">
+          <div className="card border-black mb-3 cursor-pointer md:w-[20%]" onClick={() => setShowTableOne(!showTableOne)}>
             <div className="card-body">
               <h5 className="card-title">New Users Inactive</h5>
               <p className="card-text">Number of users: {UserInactive.length}</p>
@@ -158,7 +175,7 @@ const handleStatusChange = async (UserId, inputs) => {
 
         {/* Column for the second card and table group */}
         <div className="col">
-          <div className="card border-black mb-3 cursor-pointer w-[20%]" onClick={() => setShowTableTwo(!showTableTwo)}>
+          <div className="card border-black mb-3 cursor-pointer md:w-[20%]" onClick={() => setShowTableTwo(!showTableTwo)}>
             <div className="card-body">
               <h5 className="card-title">New Doctors Pandding</h5>
               <p className="card-text">Number of Doctors: {DoctorPanddig.length}</p>
