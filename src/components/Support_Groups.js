@@ -4,7 +4,7 @@ import facbook_icon from '../images/Facebook_icon.svg.png';
 import whatsapp_icon from '../images/whatsapp_icon.png';
 import instgram_icon from '../images/Instagram_icon.png';
 import { useAuth } from '../context/AuthContext';
-import EditBroadcastLink from './Edit_Links_SupportGroups';
+import EditBroadcastLink from './ScreenInScreen/Edit_Links_SupportGroups';
 import { useSocialMediaLinks } from '../middleware/Fetch_SocialBroadcats';
 
 const BACKEND_URLCON= 'https://backend-mentalhealth-api.onrender.com';

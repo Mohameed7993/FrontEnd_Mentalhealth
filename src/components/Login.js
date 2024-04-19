@@ -4,7 +4,7 @@ import '../styles/tailwind.css';
 import vid from '../images/mentalhelthvideo.mp4'
 import {  useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import EnterInform from './Customer_Enter_More_Information';
+import EnterInform from './ScreenInScreen/Customer_Enter_More_Information'
 
 const BACKEND_URLCON= 'https://backend-mentalhealth-api.onrender.com';
 

@@ -1,9 +1,9 @@
 import React, { useState,useEffect } from 'react';
 import { useAuth } from "../context/AuthContext";
-import AddVideoExercise from './Master_UploadingNewVideoExercise';
+import AddVideoExercise from './ScreenInScreen/Master_UploadingNewVideoExercise';
 import {useFetchVideos} from '../middleware/Fetch_Videos'
 import videosImage from '../images/exerciseImage.jpg'
-import ExerciseWatching from './WatchingExercise';
+import ExerciseWatching from './ScreenInScreen/WatchingExercise';
 
 const BACKEND_URLCON= 'https://backend-mentalhealth-api.onrender.com';
 

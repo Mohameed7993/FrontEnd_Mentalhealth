@@ -1,8 +1,8 @@
 import React ,{useEffect ,useState} from "react";
 import { useAuth } from "../context/AuthContext";
 import articleimage from '../images/mentalheltharticlaimage.jpg'
-import AddPdfDocument from "./Master_UploadingNewArticles";
-import PdfViewer from "./PDF_Viwer";
+import AddPdfDocument from "./ScreenInScreen/Master_UploadingNewArticles";
+import PdfViewer from "./ScreenInScreen/PDF_Viwer";
 import {useFetchFiles} from '../middleware/Fetch_Articles';
 const BACKEND_URLCON= 'https://backend-mentalhealth-api.onrender.com';
 
