@@ -8,6 +8,34 @@ const UserProfile = () => {
     const {user} =useAuth();
     const UserId=user._id;
 
+
+
+    useEffect(() => {
+      // Directly select the element by ID and modify its class
+      const useraction = document.getElementById('userActions');
+      const defaultaction = document.getElementById('default');
+      const adminaction=document.getElementById('adminActions');
+      
+  
+      if (defaultaction) {
+        defaultaction.classList.add('md:hidden');
+        defaultaction.classList.add('hidden');
+        }
+  
+     if(user.role===1){
+      useraction.classList.remove('md:hidden');
+      useraction.classList.remove('hidden');
+          document.getElementById('adminsehlphelp').classList.add('hidden')
+          
+      
+  }else if(user.role===10) {
+      if (adminaction) {
+          adminaction.classList.remove('hidden');
+          adminaction.classList.remove('md:hidden');
+          document.getElementById('userselfhelppage').classList.add('hidden')
+        }
+  }
+  }, [user.role]);
  
 
     const handleChange = (event) => {
